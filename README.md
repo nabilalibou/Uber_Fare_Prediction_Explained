@@ -1,7 +1,8 @@
 # Uber Ride Pricing Analysis - January 2023, Paris
 
 This repository contains a Jupyter Notebook detailing an in-depth analysis of Uber's ride pricing algorithm based on historical trip data from Paris during January 2023.  
-This project originated as a challenging homework assignment given by a company in Paris. I did not end up joining them but i kept the exercice as it provides a good opportunity to practice and apply various data science methodologies. The goal was to explore the provided dataset, build robust predictive models for ride fares, evaluate their performance, and critically analyze the factors influencing pricing, including potential biases or unutilized variables within the data.
+
+This project originated as a **challenging homework assignment given by a company in Paris**. I did not end up joining them but i kept the exercice as it provides a good opportunity to practice and apply various data science methodologies. The goal was to explore the provided dataset, build robust predictive models for ride fares, evaluate their performance, and critically analyze the factors influencing pricing, including potential biases or unutilized variables within the data.
 
 **Exercice statement**
 
@@ -16,11 +17,16 @@ I was provided with a CSV file containing the historical record of **10,000 ride
 
 The analysis unfolds in several key stages:
 
-1.  **Exploratory Data Analysis (EDA):** Initial exploration of the dataset to understand its structure, distributions, and identify any immediate patterns or anomalies. This involves generating relevant visualizations to highlight key characteristics of Uber trips in Paris.
-2.  **Data Preprocessing & Feature Engineering:** Extensive cleaning, transformation, and creation of new features from raw timestamp and location data, crucial for model performance.
-3.  **Fare Modeling:** Development of advanced machine learning models, culminating in a highly effective **stacking ensemble** approach, to predict ride fares. This stage focuses on selecting appropriate models, hyperparameter tuning, and robust evaluation methodologies.
-4.  **Critical Analysis of Results:** A deep dive into the performance of the developed models, including an examination of feature importances. This analysis aims to interpret model findings in the context of Uber's pricing strategies and identify variables that appear to significantly impact fares.
-5.  **Bias Detection & Variable Utilization:** An investigation into potential biases within the dataset itself, or an attempt to determine if certain available variables are not being effectively utilized by Uber's actual pricing mechanism.
+1.  **Exploratory Data Analysis (EDA):**  
+Initial exploration of the dataset to understand its structure, distributions, and identify any immediate patterns or anomalies. This involves generating relevant visualizations to highlight key characteristics of Uber trips in Paris.
+2.  **Data Preprocessing & Feature Engineering:**  
+Extensive cleaning, transformation, and creation of new features from raw timestamp and location data.
+3.  **Fare Modeling:**  
+Development of advanced machine learning models, culminating in a **stacking ensemble** approach, to predict ride fares. This stage focuses on selecting appropriate models, hyperparameter tuning, and robust evaluation methodologies.
+4.  **Critical Analysis of Results:**  
+A deep dive into the performance of the developed models, including an examination of feature importances. This analysis aims to interpret model findings in the context of Uber's pricing strategies and identify variables that appear to significantly impact fares.
+5.  **Bias Detection & Variable Utilization:**  
+An investigation into potential biases within the dataset itself, or an attempt to determine if certain available variables are not being effectively utilized by Uber's actual pricing mechanism.
 
 ## Data Sources
 
