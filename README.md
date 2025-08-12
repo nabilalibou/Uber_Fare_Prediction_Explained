@@ -20,8 +20,12 @@ I was provided with a CSV file containing the historical record of **10,000 ride
 #### 1. Exploratory Data Analysis (EDA)
 This phase involved understanding the raw dataset's structure, identifying data types, and performing basic data cleaning. A key finding was the highly skewed distribution of the target variable (`fee`), which was addressed by applying a `np.log1p` transformation to mitigate the impact of outliers and normalize the distribution.
 
+![alt text](doc/target_transformed.png)
+
 #### 2. Feature Engineering & Exploration
 Extensive feature engineering was performed on the raw timestamp and location data. This included parsing timestamps to extract temporal features, geocoding addresses for precise coordinates, and calculating trip distances. The analysis of these features revealed strong correlations between ride fares and temporal patterns (e.g., **`hour`**, day of the week), geographical locations, and trip **`distance`**. We also integrated external hourly **weather data** for Paris, though initial correlation analysis indicated it had **low importance** for predicting fares.
+
+![alt text](doc/correlation_feature_heatmap.png)
 
 #### 3. Model Selection & Individual Fine-Tuning
 We selected four diverse models to serve as base learners for our ensemble, each chosen for its unique strengths:
@@ -30,14 +34,20 @@ We selected four diverse models to serve as base learners for our ensemble, each
 * **CatBoostRegressor:** A powerful tree-based model for its strong generalization and categorical feature handling.
 * **PolynomialFeatures + MLPRegressor:** A neural network for its flexibility in approximating complex functions.
 
+![alt text](doc/finetuned_models.png)
+
 Each of these models was individually fine-tuned using a combination of **Grid Search** and efficient **Bayesian Optimization** to achieve their maximum performance, with the best cross-validated MAE ranging from **1.3804** (for the MLP) to **1.8506** (for the Ridge model).
 
 #### 4. Stacking Ensemble & Meta-Model Fine-Tuning
 A **stacking ensemble** approach was implemented to combine the strengths of the fine-tuned base models. After cross-validation, it was found that the ensemble performed best when using a **`GradientBoostingRegressor`** as its meta-learner and operating on a stack of only three base models (**SVR**, **MLP**, and **CatBoost**). The meta-learner was then fine-tuned using Bayesian Optimization.
 
+![alt text](doc/meta_models_eval.jpg)
+
 #### 5. Final Model Evaluation & Conclusion
 The fully-trained meta-model was evaluated on a completely unseen test set. It achieved a final MAE of **1.2306**, demonstrating its ability to generalize well to new data without overfitting. The high $R^2$ of **0.92** confirmed the model's strong predictive power.
 The residual analysis showed the model's predictions are highly accurate for smaller fares, with minimal bias (residual mean of **0.27**). However, a pattern of **heteroscedasticity** was observed, with prediction errors increasing for higher fare values.
+
+![alt text](doc/actual_vs_pred.png)
 
 ### Data Sources
 
