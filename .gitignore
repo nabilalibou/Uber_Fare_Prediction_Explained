@@ -135,3 +135,9 @@ dmypy.json
 .pytype/
 .DS_Store
 suite_projet_uber.txt
+
+# IDE settings
+.idea/
+
+# CatBoost training artifacts
+catboost_info/
